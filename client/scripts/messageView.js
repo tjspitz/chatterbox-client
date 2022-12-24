@@ -9,7 +9,8 @@ var MessageView = {
       <!--
       <div class="chat">
         <div class="username"></div>
-        <div></div>
+        <div>
+        </div>
       </div>
       -->
     `)
