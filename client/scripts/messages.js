@@ -6,7 +6,7 @@
 var Messages = {
 
   // TODO: Define how you want to store your messages.
-  _data: null,
+  _data: [],
 
   // interact with the messages
 
