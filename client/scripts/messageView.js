@@ -5,6 +5,9 @@ var MessageView = {
   // Learn more about Underscore's templating capability
   // here: https://underscorejs.org/#template.
   // TODO: Update this template accordingly.
+
+  // need a .roomname property?
+  // guess is that we'll use this to interpret the server response into a consumable set of data for message
   render: _.template(`
       <!--
       <div class="chat">
@@ -13,5 +16,4 @@ var MessageView = {
       </div>
       -->
     `)
-
 };

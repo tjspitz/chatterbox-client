@@ -5,22 +5,21 @@ var MessagesView = {
 
   $chats: $('#chats'),
 
+  // Perform any work which needs to be done when this view loads.
   initialize: function() {
-    // TODO: Perform any work which needs to be done
-    // when this view loads.
   },
 
+  // Render _all_ the messages.
   render: function() {
-    // TODO: Render _all_ the messages.
   },
 
+  // Render a single message
   renderMessage: function(message) {
-    // TODO: Render a single message.
   },
 
+  // Handles a user clicking on a message
   handleClick: function(event) {
-    // TODO: handle a user clicking on a message
-    // (this should add the sender to the user's friend list).
+    // also needs to add the sender to the user's friend list
   }
 
 };

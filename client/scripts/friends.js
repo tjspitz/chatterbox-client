@@ -2,12 +2,15 @@
 // Treat it like a data structure - add methods to interact
 // with and manipulate the data.
 
-var Friends = {
-  // TODO: Define how you want to store your list of friends.
 
+var Friends = {
+  // should be a graph (most likely)
   _data: null,
 
-  // TODO: Define methods which allow you to add, toggle,
-  // and check the friendship status of other users.
+  // method to make one user a friend with another
+
+  // method to remove one user as a friend from another
+
+  // method to determine if two users are friends?
 
 };
