@@ -2,6 +2,10 @@
 // It should initialize the other parts of the application
 // and begin making requests to the Parse API for data.
 
+
+// what is going to invoke initialize?
+// what is going to invoke fetch?
+
 var App = {
 
   $spinner: $('.spinner img'),
@@ -27,9 +31,12 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
-
+      // store data into messages -- adding to that storage
+      //
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
+      // most likely this is where we'll update the DOM and re-render
+      // make call to receive messages
     });
   },
 

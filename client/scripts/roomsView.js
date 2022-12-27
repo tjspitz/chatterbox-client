@@ -7,24 +7,24 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
-    // TODO: Perform any work which needs to be done
-    // when this view loads.
+  // TODO: Perform any work which needs to be done
+  // when this view loads.
   },
 
+  // Render out the list of rooms
   render: function() {
-    // TODO: Render out the list of rooms.
   },
 
+  // Render out a single room.
   renderRoom: function(roomname) {
-    // TODO: Render out a single room.
   },
 
+  // Handle a user selecting a different room.
   handleChange: function(event) {
-    // TODO: Handle a user selecting a different room.
   },
 
+  // Handle the user clicking the "Add Room" button
   handleClick: function(event) {
-    // TODO: Handle the user clicking the "Add Room" button.
   }
 
 };
