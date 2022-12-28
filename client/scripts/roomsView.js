@@ -6,21 +6,31 @@ var RoomsView = {
   $button: $('#rooms button'),
   $select: $('#rooms select'),
 
-  initialize: function() {
-  // TODO: Perform any work which needs to be done
-  // when this view loads.
+  initialize: () => {
+    RoomsView.render()
   },
 
   // Render out the list of rooms
-  render: function() {
+  render: () => {
+    // append the KEY ('name') to the $select el
+    // with the appropriate extra sauce
+    _.each(Rooms._data, (room, name) => {
+      RoomsView.renderRoom(name)
+    })
+
   },
 
   // Render out a single room.
-  renderRoom: function(roomname) {
+  renderRoom: name => {
+    let $curOption = $('<option></option>');
+      $curOption.attr( {value: name} );
+      $curOption.text(name);
+      RoomsView.$select.append($curOption);
   },
 
   // Handle a user selecting a different room.
   handleChange: function(event) {
+
   },
 
   // Handle the user clicking the "Add Room" button
