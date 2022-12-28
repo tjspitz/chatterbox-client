@@ -15,20 +15,22 @@ var App = {
   initialize: () => {
     App.username = window.location.search.substr(10);
 
-    FormView.initialize();
-    RoomsView.initialize();
-    MessagesView.initialize();
+    // originally initialized everything up here
 
     // Fetch initial batch of messages
     App.startSpinner();
-    App.fetch(App.stopSpinner);
-
+    App.fetch(() => {
+      FormView.initialize();
+      RoomsView.initialize();
+      MessagesView.initialize();
+      App.stopSpinner();
+    })
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
   },
 
   fetch: function(callback = ()=>{}) {
-    App.startSpinner();
+
     Parse.readAll((data) => {
       // examine the response from the server request:
       // console.log(data); // <-- an array of objects
@@ -54,10 +56,11 @@ var App = {
         }
       });
 
-      console.log('Messages._data is now: ', Messages._data);
+      callback()
+
+      // console.log('Messages._data is now: ', Messages._data);
       console.log('Rooms._data is now: ', Rooms._data);
     });
-    App.stopSpinner();
   },
 
   startSpinner: () => {
