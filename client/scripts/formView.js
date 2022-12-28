@@ -7,20 +7,36 @@
 
 var FormView = {
 
-  $form: $('form'),
+  $textForm: $('#send'),
+
 
   initialize: function() {
     // click event-invoke handleSubmit function
-    FormView.$form.on('submit', FormView.handleSubmit);
+    FormView.$textForm.on('submit', FormView.handleSubmit);
   },
 
 
   handleSubmit: function(event) {
-
-    // if the form is empty
-      // Stop the browser from submitting the form
-      // event is passed to handleSubmit mehtod
+    // event is passed to handleSubmit mehtod
     event.preventDefault();
+
+    // invoke parse.create, pass in msg object
+    let $text = $('#message');
+    let $roomname = $('option');
+
+    $text = $text.val(); // good
+
+
+    $roomname = $roomname.val();
+
+    console.log('username: ', App.username, 'text: ', $text, 'roomname: ', $roomname)
+    Parse.create(
+      {
+        username: App.username,
+        text: $text,
+        roomname: $roomname
+      }
+    )
 
     // TODO: Currently, this is all handleSubmit does.
     // Make this function actually send a message to the Parse API.
@@ -30,7 +46,7 @@ var FormView = {
 
   setStatus: function(active) {
     var status = active ? 'true' : null;
-    FormView.$form.find('input[type=submit]').attr('disabled', status);
+    FormView.$textForm.find('input[type=submit]').attr('disabled', status);
   }
 
 };
