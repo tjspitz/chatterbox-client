@@ -3,15 +3,14 @@
 
 var MessageView = {
   // need a .roomname property?
+  //
   // guess is that we'll use this to interpret the server response into a consumable set of data for message
   render: _.template(`
-      <!--
       <div class="chat">
         <div class="username"><%- username %></div>
         <div class="text"><%- text %>></div>
         <div class="roomname"><%- roomname %>></div>
       </div>
-      -->
     `)
 };
 

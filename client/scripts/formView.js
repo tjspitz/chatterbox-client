@@ -19,7 +19,7 @@ var FormView = {
 
     // if the form is empty
       // Stop the browser from submitting the form
-      // even is passed to handleSubmit mehtod
+      // event is passed to handleSubmit mehtod
     event.preventDefault();
 
     // TODO: Currently, this is all handleSubmit does.

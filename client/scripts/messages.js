@@ -42,8 +42,4 @@ $.ajax({
     console.error('chatterbox: Failed to send message', data);
   },
 });
-
-let uri = "my test.asp?name=ståle&car=saab";
-let encoded = encodeURI(uri);
-let decoded = decodeURI(encoded);
 */
