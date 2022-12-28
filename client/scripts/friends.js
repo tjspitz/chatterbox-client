@@ -5,7 +5,7 @@
 
 var Friends = {
   // should be a graph (most likely)
-  _data: null,
+  _data: [],
 
   // method to make one user a friend with another
 
