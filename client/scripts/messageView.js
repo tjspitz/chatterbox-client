@@ -8,10 +8,11 @@ var MessageView = {
   render: _.template(`
       <div class="chat">
         <div class="username"><%- username %></div>
-        <div class="text"><%- text %>></div>
-        <div class="roomname"><%- roomname %>></div>
+        <div class="text"><%- text %></div>
       </div>
     `)
+    // took roomname out for now
+    // <div class="roomname"><%- roomname %> </div>
 };
 
 // message view - takes care of XSS attacks by sanitizing a message
