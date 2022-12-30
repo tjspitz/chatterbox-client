@@ -25,15 +25,18 @@ var App = {
       MessagesView.initialize();
       App.stopSpinner();
     })
+
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
+
+    // setTimeout(() => window.location.reload(), 10000)
   },
 
   fetch: function(callback = ()=>{}) {
 
     Parse.readAll((data) => {
       // examine the response from the server request:
-      // console.log(data); // <-- an array of objects
+      console.log(data); // <-- an array of objects
 
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
@@ -46,21 +49,24 @@ var App = {
       // the props have an array of all msgs containing that roomname as their val
 
       data.forEach(message => {
-        let {username, text, roomname} = message;
-        Messages._data.push( {username, text, roomname} );
+        let {username, text, roomname, github_handle} = message;
+
+        Messages._data.push( {username, text, roomname, github_handle} );
+        Rooms._data['__AllTheMessages__'] = [];
+        Rooms._data['__AllTheMessages__'].push( {username, text, roomname, github_handle} )
 
         if (!Rooms._data[roomname]) {
-          Rooms._data[roomname] = [{username, text, roomname}];
+          Rooms._data[roomname] = [{username, text, roomname, github_handle}];
         } else {
-          Rooms._data[roomname].push({username, text, roomname});
+          Rooms._data[roomname].push({username, text, roomname, github_handle});
         }
       });
 
       callback()
 
-      // console.log('Messages._data is now: ', Messages._data);
-      console.log('Rooms._data is now: ', Rooms._data);
+      RoomsView.$select.val('__AllTheMessages__');
     });
+
   },
 
   startSpinner: () => {
@@ -72,4 +78,5 @@ var App = {
     App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
   }
+
 };

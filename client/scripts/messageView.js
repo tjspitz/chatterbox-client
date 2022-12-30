@@ -9,6 +9,7 @@ var MessageView = {
       <div class="chat">
         <div class="username"><%- username %></div>
         <div class="text"><%- text %></div>
+        <div class="handle"><%- github_handle %></div>
       </div>
     `)
     // took roomname out for now

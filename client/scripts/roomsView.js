@@ -8,6 +8,9 @@ var RoomsView = {
 
   initialize: () => {
     RoomsView.render()
+
+    RoomsView.$button.on('click', RoomsView.handleClick);
+    RoomsView.$select.on('change', RoomsView.handleChange);
   },
 
   // Render out the list of rooms
@@ -22,6 +25,7 @@ var RoomsView = {
 
   // Render out a single room.
   renderRoom: name => {
+
     let $curOption = $('<option></option>');
       $curOption.attr( {value: name} );
       $curOption.text(name);
@@ -31,10 +35,27 @@ var RoomsView = {
   // Handle a user selecting a different room.
   handleChange: function(event) {
 
+    let $thisRoom = $('select option:selected').val();
+
+    MessagesView.$chats.html('');
+    if ($thisRoom === '__AllTheMessages__') {
+      MessagesView.render()
+    } else {
+      MessagesView.render(Rooms._data[$thisRoom]);
+    }
+
   },
 
   // Handle the user clicking the "Add Room" button
   handleClick: function(event) {
+    var newRoom = window.prompt('Name your new room...' || 'lobby');
+
+    if (Rooms._data[newRoom]) {
+      alert('This room already exists!')
+    } else {
+      RoomsView.renderRoom(newRoom)
+    }
+
   }
 
 };

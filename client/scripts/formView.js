@@ -2,34 +2,25 @@
 // Consider the provided code and complete the functionality.
 // Apply what you learn here to other interactive views if necessary.
 
-// wheredoes the event argument come from? Maybe the input from the user?
-
-
 var FormView = {
 
-  $textForm: $('#send'),
-
+  $form: $('form'),
 
   initialize: function() {
     // click event-invoke handleSubmit function
-    FormView.$textForm.on('submit', FormView.handleSubmit);
+    FormView.$form.on('submit', FormView.handleSubmit);
   },
-
 
   handleSubmit: function(event) {
     // event is passed to handleSubmit mehtod
     event.preventDefault();
 
+    // use .val for forms, inputs, and selects/options
+    let $text = $('#message').val();
+    let $roomname = $('select option:selected').val();
+
     // invoke parse.create, pass in msg object
-    let $text = $('#message');
-    let $roomname = $('option');
-
-    $text = $text.val(); // good
-
-
-    $roomname = $roomname.val();
-
-    console.log('username: ', App.username, 'text: ', $text, 'roomname: ', $roomname)
+      // data stored in App.username, $text, $roomname
     Parse.create(
       {
         username: App.username,
@@ -38,15 +29,12 @@ var FormView = {
       }
     )
 
-    // TODO: Currently, this is all handleSubmit does.
-    // Make this function actually send a message to the Parse API.
-
-    console.log('click!');
+    setTimeout(() => location.reload(true), 500);
   },
 
   setStatus: function(active) {
     var status = active ? 'true' : null;
-    FormView.$textForm.find('input[type=submit]').attr('disabled', status);
+    FormView.$form.find('input[type=submit]').attr('disabled', status);
   }
 
 };
